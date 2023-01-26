@@ -1,0 +1,44 @@
+
+{% block content %}
+<table>
+    <thead>
+        <tr>
+            <th>Order ID</th>
+            <th>Purchase Date</th>
+            <th>Total Cost</th>
+            <th>Shipping Address</th>
+            <th>Items</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for order in orders %}
+            <tr>
+                <td>{{ order.order_id }}</td>
+                <td>{{ order.purchase_date }}</td>
+                <td>{{ order.total_cost }}</td>
+                <td>{{ order.shipping_address }}</td>
+                <td>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Item Name</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in order.items.all %}
+                                <tr>
+                                    <td>{{ item.name }}</td>
+                                    <td>{{ item.price }}</td>
+                                    <td>{{ item.quantity }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
