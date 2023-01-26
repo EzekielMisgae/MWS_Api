@@ -1,4 +1,4 @@
-#How to fetch data from amazon api to database using Django
+# How to fetch data from amazon api to database using Django   
 1. Obtain an access token for the logged-in user by using Amazon's Login with Amazon service.
 2. Use the access token to make a request to Amazon's Orders API to retrieve the user's order history.
 3. Parse the response from the API to extract the relevant data.
